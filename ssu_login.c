@@ -7,6 +7,9 @@ char userID[16][32];
 char pwdID[16][32];
 int user_num;
 
+// [param]
+// fd: read from fd
+// s: destination of reading
 int parse(int fd, char *s) {
     char c;
     for (int i = 0; i < 32; i++) {
@@ -36,16 +39,20 @@ int check_idpw(char *name, char *pwd) {
 
 int main(int argc, char *argv[]) {
     get_user_list();
-    char name[32];
-    char pwd[32];
+    char name[32] = {0, };
+    char pwd[32] = {0, };
+    
     printf(1, "Username: ");
-    parse(0, name);
+    parse(0, name); // input from fd 0
+
     printf(1, "Password: ");
     parse(0, pwd);
+
     if (!check_idpw(name, pwd)) {
         printf(1, "login fail\n");
         return 0;
     }
+    
     int pid = fork();
     if (pid < 0) {
       printf(1, "init: fork failed\n");
