@@ -3,6 +3,9 @@
 #include "user.h"
 #include "fcntl.h"
 
+// Add list.txt to Makefile 
+// https://stackoverflow.com/questions/47250441/add-a-generic-file-in-xv6-makefile
+
 char userID[16][32];
 char pwdID[16][32];
 int user_num;
