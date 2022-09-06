@@ -5,13 +5,11 @@
 char buf[512];
 int printline;
 
-void 
-cat(int fd)
-{
+void cat(int fd) {
   int n;
-
   int cnt = 0;
-  while((n = read(fd, buf, sizeof(buf))) > 0) {
+
+  while ((n = read(fd, buf, sizeof(buf))) > 0) {
     for (int i = 0; i < n; i++) {
         if (buf[i] == '\n') cnt++;
         if (cnt == printline) {
@@ -25,7 +23,7 @@ cat(int fd)
     }
     if (cnt == printline) return;
   }
-  if(n < 0){
+  if (n < 0) {
     printf(1, "cat: read error\n");
     exit();
   }
