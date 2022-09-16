@@ -184,7 +184,8 @@ UPROGS=\
 	_helloworld\
 	_hcat\
 	_ssu_login\
-	_memsizetest
+	_memsizetest\
+	_ssu_trace
 
 fs.img: mkfs README list.txt $(UPROGS)
 	./mkfs fs.img README list.txt $(UPROGS)
@@ -257,7 +258,7 @@ EXTRA=\
 	printf.c umalloc.c\
 	README list.txt dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
-	\ helloworld.c hcat.c ssu_login.c memsizetest.c
+	\ helloworld.c hcat.c ssu_login.c memsizetest.c ssu_trace.c
 
 dist:
 	rm -rf dist

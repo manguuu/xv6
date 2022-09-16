@@ -96,3 +96,14 @@ sys_memsize(void)
   struct proc *prc = myproc();
   return (int)prc->sz;
 }
+
+int
+sys_trace(void)
+{
+  int mask;
+  if(argint(0, &mask) < 0)
+    return -1;
+  struct proc *myprc = myproc();
+  myprc->mask = (uint)mask;
+  return 0;
+}
