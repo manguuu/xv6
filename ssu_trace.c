@@ -7,8 +7,8 @@ int main(int argc, char *argv[]) {
         exit();
     }
     int pid = fork();
+    trace(atoi(argv[1]));
     if (pid == 0) {
-        trace(atoi(argv[1]));
         exec(argv[2], argv + 2);
     } else if (pid > 0) {
         wait();
