@@ -6,8 +6,8 @@ int main(int argc, char *argv[]) {
         printf(1, "ssu_trace err\n");
         exit();
     }
-    int pid = fork();
     trace(atoi(argv[1]));
+    int pid = fork();
     if (pid == 0) {
         exec(argv[2], argv + 2);
     } else if (pid > 0) {
