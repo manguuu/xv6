@@ -42,7 +42,7 @@ printf(int fd, const char *fmt, ...)
   char *s;
   int c, i, state;
   uint *ap;
-
+  
   state = 0;
   ap = (uint*)(void*)&fmt + 1;
   for(i = 0; fmt[i]; i++){

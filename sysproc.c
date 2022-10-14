@@ -89,3 +89,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_weightset(void)
+{
+  int weight;
+  
+  if (argint(0, &weight) < 0) return -1;
+  do_weightset(weight);
+  return 0;
+}
