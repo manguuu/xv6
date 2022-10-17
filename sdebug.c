@@ -11,7 +11,7 @@ void sdebug_func() {
     for (int i = 1; i <= PNUM; i++) {
         int pid = fork();
         if (pid == 0) {
-            weightset(i);
+            if (weightset(i) < 0) continue;
             int cnt = 0;
             int begin = uptime();
             while (1) {
