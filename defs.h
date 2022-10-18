@@ -120,6 +120,7 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+// proc.c에서 do_weightset 함수를 사용하기 위해 추가
 void            do_weightset(int);
 
 // swtch.S

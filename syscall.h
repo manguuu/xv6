@@ -20,4 +20,5 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
+// 시스템콜 추가를 위해 sys_weightset 추가
 #define SYS_weightset 22

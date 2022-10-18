@@ -8,6 +8,12 @@
 void sdebug_func() {
     printf(1, "start sdebug command\n");
 
+    /*
+    PNUM만큼 반복문을 수행하면서 프로세스를 생성한다
+    자식 프로세스에서 cnt의 값을 증가해가며 
+    cnt가 print_cycle값이 됐을때 출력하고
+    total_counter 값이 되면 자식 프로세스를 종료한다.
+    */ 
     for (int i = 1; i <= PNUM; i++) {
         int pid = fork();
         if (pid == 0) {

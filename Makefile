@@ -89,6 +89,8 @@ endif
 ifneq ($(shell $(CC) -dumpspecs 2>/dev/null | grep -e '[^f]nopie'),)
 CFLAGS += -fno-pie -nopie
 endif
+
+# debug=1이 있다면 컴파일 플레그로 DEBUG 추가
 ifeq ($(debug), 1)
 CFLAGS += -DDEBUG
 endif
@@ -185,6 +187,7 @@ UPROGS=\
 	_wc\
 	_zombie\
 	_sdebug\
+	# 쉘 프로그램 추가
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
@@ -220,6 +223,8 @@ GDBPORT = $(shell expr `id -u` % 5000 + 25000)
 QEMUGDB = $(shell if $(QEMU) -help | grep -q '^-gdb'; \
 	then echo "-gdb tcp::$(GDBPORT)"; \
 	else echo "-s -p $(GDBPORT)"; fi)
+
+# CPU 코어의 개수를 1개로 만듬
 ifndef CPUS
 CPUS := 1
 endif
@@ -258,7 +263,8 @@ EXTRA=\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
 	sdebug.c\
-
+	# sdebug 쉘 프로그램 추가
+	
 dist:
 	rm -rf dist
 	mkdir dist

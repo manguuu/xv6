@@ -96,6 +96,8 @@ sys_weightset(void)
   int weight;
   if (argint(0, &weight) < 0) return -1;
   if (!weight) return -1;
+  // weight를 함수 인자로 받고, 만약 0이면 예외처리를 한다
+  // do_weight 함수 호출
   do_weightset(weight);
   return 0;
 }

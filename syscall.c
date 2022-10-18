@@ -127,6 +127,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+// 시스템콜 추가를 위해 sys_weightset 추가
 [SYS_weightset] sys_weightset,
 };
 

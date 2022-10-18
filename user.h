@@ -23,6 +23,7 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+// 시스템콜 추가를 위해 weightset 추가
 int weightset(int);
 
 // ulib.c

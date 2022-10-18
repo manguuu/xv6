@@ -49,6 +49,8 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+  
+  // weight랑 priority를 관리하기 위한 변수를 추가한다
   long weight;
   long priority;
 };
